@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package protobuf;
+
+option go_package = "github.com/mahdi-eth/go-grpc-streaming;grpc";
+
+service StreamService {
+  rpc FetchResponse (Request) returns (stream Response) {}
+}
+
+message Request {
+  int32 id = 1;
+}
+
+message Response {
+  string result = 1;
+}
